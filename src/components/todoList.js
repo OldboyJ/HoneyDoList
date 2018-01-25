@@ -1,7 +1,9 @@
 import React from 'react'
+import TodoItem from './todoItem'
 
 class TodoList extends React.Component {
-  state = [
+  state = {
+    listData: [
     {
       title: 'Take out the trash',
       id: 1
@@ -11,9 +13,10 @@ class TodoList extends React.Component {
       id: 2
     }
   ]
+  }
   render() {
-    const todoItem = this.state.map((item) => {
-      return <li>{item.title}</li>
+    const todoItem = this.state.listData.map((item, index) => {
+      return <TodoItem key={index} todo={item}/>
     })
     return (
       <div>
